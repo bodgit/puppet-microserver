@@ -7,7 +7,17 @@ class microserver::config {
 
   if $::microserver::install_ipmi {
     if $::microserver::ipmi_driver == 'builtin' {
-      # Need to alter grub configuration here
+      kernel_parameter { 'ipmi_si.type':
+        value  => 'kcs',
+        notify => Notify['IPMI Reboot'],
+      }
+      kernel_parameter { 'ipmi_si.ports':
+        value  => '0xca2'
+        notify => Notify['IPMI Reboot'],
+      }
+      notify { 'IPMI Reboot':
+        message => 'A reboot will be required for this to fully work',
+      }
     } else {
       file { '/etc/modprobe.d/ipmi.conf':
         ensure  => file,
