@@ -7,6 +7,9 @@ class microserver::params {
 
   case $::osfamily {
     'RedHat': {
+      $install_rngd     = str2bool($::microserver_tpm)
+      $install_ipmi     = str2bool($::microserver_ilo)
+
       case $::operatingsystemmajrelease {
         6: {
           # RHEL/CentOS 6.4+ compiled the ipmi_si driver into the kernel
@@ -15,18 +18,18 @@ class microserver::params {
           } else {
             $ipmi_driver_type = 'module'
           }
+          $install_watchdog = $install_ipmi
         }
         7: {
           $ipmi_driver_type = 'module'
+          $install_watchdog = true
         }
         default: {
           fail("The ${module_name} module is not support on an ${::osfamily} ${::operatingsystemmajrelease} based system.") # lint:ignore:80chars
         }
       }
-      $install_rngd     = str2bool($::microserver_tpm)
-      $install_ipmi     = str2bool($::microserver_ilo)
-      $install_watchdog = true
-      $watchdog_type    = $install_ipmi ? {
+
+      $watchdog_type = $install_ipmi ? {
         true    => 'ipmi',
         default => 'tco',
       }
