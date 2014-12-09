@@ -12,7 +12,7 @@ class microserver::config {
         notify => Notify['IPMI Reboot'],
       }
       kernel_parameter { 'ipmi_si.ports':
-        value  => '0xca2'
+        value  => '0xca2',
         notify => Notify['IPMI Reboot'],
       }
       notify { 'IPMI Reboot':
