@@ -1,9 +1,9 @@
 # Fact to discern if the TPM module is fitted
 Facter.add(:microserver_tpm) do
 
-  :confine :kernel => 'Linux'
-  :confine :manufacturer => 'HP'
-  :confine :productname => 'ProLiant MicroServer'
+  confine :kernel => 'Linux'
+  confine :manufacturer => 'HP'
+  confine :productname => 'ProLiant MicroServer'
 
   setcode do
     # Relying on the Linux kernel/distribution to have loaded the module here
