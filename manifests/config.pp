@@ -25,7 +25,7 @@ class microserver::config {
         group   => 0,
         mode    => '0644',
         content => "options ipmi_si type=kcs ports=0xca2\n",
-        before  => Class['::ipmi'],
+        notify  => Class['::ipmi'],
       }
     }
 
@@ -63,11 +63,11 @@ class microserver::config {
 
       # Ensure OpenIPMI is started before watchdog
       Class['::ipmi'] ~> Class['::watchdog']
-    }
-  } else {
-    file { '/etc/modprobe.d/sp5100_tco.conf':
-      ensure => absent,
-      notify => Class['::watchdog'],
+    } else {
+      file { '/etc/modprobe.d/sp5100_tco.conf':
+        ensure => absent,
+        notify => Class['::watchdog'],
+      }
     }
   }
 }
