@@ -5,7 +5,7 @@ describe 'microserver' do
   let(:facts) do
     {
       :manufacturer    => 'HP',
-      :productname     => 'MicroServer',
+      :productname     => 'ProLiant MicroServer',
       :microserver_ilo => false,
       :microserver_tpm => false
     }
@@ -16,13 +16,13 @@ describe 'microserver' do
       super().merge(
         {
           :manufacturer => 'Daddies',
-          :productname  => 'MassiveServer'
+          :productname  => 'ProLiant MassiveServer'
         }
       )
     end
 
     it do
-      expect { subject }.to raise_error(/not supported on Daddies MassiveServer hardware/)
+      expect { subject }.to raise_error(/not supported on Daddies ProLiant MassiveServer hardware/)
     end
   end
 

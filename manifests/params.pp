@@ -1,7 +1,7 @@
 #
 class microserver::params {
 
-  if $::manufacturer != 'HP' or $::productname != 'MicroServer' {
+  if $::manufacturer != 'HP' or $::productname != 'ProLiant MicroServer' {
     fail("The ${module_name} module is not supported on ${::manufacturer} ${::productname} hardware.") # lint:ignore:80chars
   }
 

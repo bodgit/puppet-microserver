@@ -3,7 +3,7 @@ Facter.add(:microserver_tpm) do
 
   :confine :kernel => 'Linux'
   :confine :manufacturer => 'HP'
-  :confine :productname => 'MicroServer'
+  :confine :productname => 'ProLiant MicroServer'
 
   setcode do
     # Relying on the Linux kernel/distribution to have loaded the module here

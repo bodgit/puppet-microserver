@@ -3,7 +3,7 @@ Facter.add(:microserver_ilo) do
 
   :confine :kernel => 'Linux'
   :confine :manufacturer => 'HP'
-  :confine :productname => 'MicroServer'
+  :confine :productname => 'ProLiant MicroServer'
 
   setcode do
     sysfs_root = '/sys/bus/pci/devices/0000:01:00.0/'
