@@ -63,6 +63,10 @@
     {
       "name": "bodgit/rngd",
       "version_requirement": ">=1.0.0 <2.0.0"
+    },
+    {
+      "name": "bodgit/watchdog",
+      "version_requirement": ">=1.0.0 <2.0.0"
     }
   ]
 }
