@@ -2,6 +2,7 @@
 
 Tested with Travis CI
 
+[![Puppet Forge](http://img.shields.io/puppetforge/v/bodgit/microserver.svg)](https://forge.puppetlabs.com/bodgit/microserver)
 [![Build Status](https://travis-ci.org/bodgit/puppet-microserver.svg?branch=master)](https://travis-ci.org/bodgit/puppet-microserver)
 
 #### Table of Contents
