@@ -29,12 +29,14 @@ class microserver::config {
       }
     }
 
+    $watchdog = $::microserver::watchdog_type ? {
+      'ipmi'  => true,
+      default => false,
+    }
+
     # Install OpenIPMI
     class { '::ipmi':
-      watchdog => $::microserver::watchdog_type ? {
-        'ipmi'  => true,
-        default => false,
-      },
+      watchdog => $watchdog,
     }
   }
 
