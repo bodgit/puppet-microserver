@@ -10,6 +10,7 @@ Tested with Travis CI
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with microserver](#setup)
     * [What microserver affects](#what-microserver-affects)
+    * [Setup requirements](#setup-requirements)
     * [Beginning with microserver](#beginning-with-microserver)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
@@ -42,6 +43,10 @@ everything to work properly.
 * Install and set up a hardware watchdog using either the IPMI watchdog if
   IPMI is installed or the TCO watchdog present in the SB800 southbridge
   chipset
+
+### Setup Requirements
+
+You will need to set `pluginsync = true`.
 
 ### Beginning with microserver
 
