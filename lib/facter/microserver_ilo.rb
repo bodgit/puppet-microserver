@@ -15,7 +15,7 @@ Facter.add(:microserver_ilo) do
       if Facter::Util::FileRead.read(File.join(parent, 'vendor')) == "0x1a03\n" and
          Facter::Util::FileRead.read(File.join(parent, 'device')) == "0x1150\n"
 
-        Dir.glob(parent + '/0000:??:00.0').each do |child|
+        Dir.glob(File.join(parent, '0000:??:00.0')).each do |child|
           if Facter::Util::FileRead.read(File.join(child, 'vendor')) == "0x1a03\n" and
              Facter::Util::FileRead.read(File.join(child, 'device')) == "0x2000\n"
             found = true
